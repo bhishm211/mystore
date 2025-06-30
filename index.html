@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nex Gadgetry - Discover Beautiful Products</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 2rem;
+  color: #FF4B91;
+  font-weight: 700;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #444;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #FF4B91;
+}
+
+header input {
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: 0.3s;
+}
+
+header input:focus {
+  border-color: #FF4B91;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  color: #333;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* Product Grid */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 60px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  padding: 15px;
+}
+
+.card p {
+  padding: 0 15px;
+  color: #666;
+}
+
+.card a {
+  display: block;
+  margin: 15px;
+  background: linear-gradient(to right, #ff4b91, #ffb199);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.card a:hover {
+  background: linear-gradient(to right, #ffb199, #ff4b91);
+}
+
+/* Footer */
+footer {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="logo">Nex Gadgetry</div>
+  <nav>
+    <a href="#">Home Decor</a>
+    <a href="#">Fashion</a>
+    <a href="#">Gadgets</a>
+    <a href="#">Kitchen</a>
+    <a href="#">Beauty</a>
+  </nav>
+  <input type="text" id="search" placeholder="Search..." onkeyup="searchProducts()">
+</header>
+
+<section class="hero">
+  <h1>✨ Welcome to Nex Gadgetry ✨</h1>
+  <p>Find Trending Products in Home, Fashion, Beauty, and More!</p>
+</section>
+
+<main id="productContainer">
+  <!-- Products will load here -->
+</main>
+
+<footer>
+  <p>© 2025 Nex Gadgetry | Powered by Amazon Affiliate Program</p>
+</footer>
+
+<script>
+const products = [
+  {
+    name: "Elegant Vase",
+    image: "https://m.media-amazon.com/images/I/71Example.jpg",
+    desc: "Perfect for modern home decor.",
+    link: "YOUR_AFFILIATE_LINK1"
+  },
+  {
+    name: "Wireless Earbuds",
+    image: "https://m.media-amazon.com/images/I/51Example.jpg",
+    desc: "Noise-canceling high-quality earbuds.",
+    link: "YOUR_AFFILIATE_LINK2"
+  },
+  {
+    name: "Smart LED Mirror",
+    image: "https://m.media-amazon.com/images/I/81Example.jpg",
+    desc: "Touch screen mirror with LED lights.",
+    link: "YOUR_AFFILIATE_LINK3"
+  },
+  {
+    name: "Fashion Handbag",
+    image: "https://m.media-amazon.com/images/I/61Example.jpg",
+    desc: "Trendy and stylish for every occasion.",
+    link: "YOUR_AFFILIATE_LINK4"
+  },
+  {
+    name: "Portable Blender",
+    image: "https://m.media-amazon.com/images/I/51Example.jpg",
+    desc: "Make smoothies on the go.",
+    link: "YOUR_AFFILIATE_LINK5"
+  }
+];
+
+function displayProducts() {
+  const container = document.getElementById('productContainer');
+  container.innerHTML = "";
+  products.forEach(product => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.desc}</p>
+        <a href="${product.link}" target="_blank">Shop Now</a>
+      </div>
+    `;
+  });
+}
+
+function searchProducts() {
+  const input = document.getElementById('search').value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(input) ? 'block' : 'none';
+  });
+}
+
+displayProducts();
+</script>
+
+</body>
+</html>
