@@ -1,517 +1,69 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nex Gadgetry</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nex Gadgetry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
-<h1>Nex Gadgetry</h1>
-<p>Your One-Stop Gadget & Lifestyle Store</p>
-</header>
+    <div class="loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <header>
+        <img src="https://via.placeholder.com/80" alt="Nex Gadgetry Logo" class="logo animate__animated animate__bounceIn">
+        <h1 class="animate__animated animate__fadeIn">Nex Gadgetry</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">Your One-Stop Gadget & Lifestyle Store</p>
+    </header>
 
-<nav>
-<ul>
-<li onclick="filterProducts('all')">All</li>
-<li onclick="filterProducts('home-decor')">Home Decor</li>
-<li onclick="filterProducts('fashion')">Fashion</li>
-<li onclick="filterProducts('gadgets')">Gadgets</li>
-<li onclick="filterProducts('kitchen')">Kitchen</li>
-<li onclick="filterProducts('beauty')">Beauty</li>
-</ul>
-</nav>
+    <section class="hero animate__animated animate__fadeIn">
+        <div class="hero-content">
+            <h2>Trending This Week</h2>
+            <p>Discover our hottest products with exclusive discounts</p>
+            <button class="cta-button" onclick="filterProducts('all')">Shop Now</button>
+        </div>
+        <div class="trending-badge animate__animated animate__pulse animate__infinite">
+            <span>🔥 HOT</span>
+        </div>
+    </section>
 
-<section id="products" class="product-grid">
-<!-- Products will load here -->
-</section>
+    <nav>
+        <ul>
+            <li onclick="filterProducts('all')" class="animate__animated animate__fadeIn">All</li>
+            <li onclick="filterProducts('home-decor')" class="animate__animated animate__fadeIn animate__delay-1s">Home Decor</li>
+            <li onclick="filterProducts('fashion')" class="animate__animated animate__fadeIn animate__delay-2s">Fashion</li>
+            <li onclick="filterProducts('gadgets')" class="animate__animated animate__fadeIn animate__delay-3s">Gadgets</li>
+            <li onclick="filterProducts('kitchen')" class="animate__animated animate__fadeIn animate__delay-4s">Kitchen</li>
+            <li onclick="filterProducts('beauty')" class="animate__animated animate__fadeIn animate__delay-5s">Beauty</li>
+        </ul>
+    </nav>
 
-<section class="comments">
-<h2>Customer Reviews</h2>
-<div class="comment">
-<p>⭐️⭐️⭐️⭐️⭐️ Amazing quality! Totally worth it.</p>
-<span>- Jessica</span>
-</div>
-<div class="comment">
-<p>⭐️⭐️⭐️⭐️ Got my product on time. Looks premium!</p>
-<span>- Mark</span>
-</div>
-<div class="comment">
-<p>⭐️⭐️⭐️⭐️⭐️ Loved it! Highly recommend this store.</p>
-<span>- Emily</span>
-</div>
-</section>
+    <section id="products" class="product-grid">
+        <!-- Products will load here -->
+    </section>
 
-<footer>
-<p>&copy; 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com</p>
-</footer>
+    <section class="comments">
+        <h2>Customer Reviews</h2>
+        <div class="comment">
+            <p>⭐️⭐️⭐️⭐️⭐️ Amazing quality! Totally worth it.</p>
+            <span>- Jessica</span>
+        </div>
+        <div class="comment">
+            <p>⭐️⭐️⭐️⭐️ Got my product on time. Looks premium!</p>
+            <span>- Mark</span>
+        </div>
+        <div class="comment">
+            <p>⭐️⭐️⭐️⭐️⭐️ Loved it! Highly recommend this store.</p>
+            <span>- Emily</span>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-style.css
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-background-color: #f5f5f5;
-color: #333;
-}
-
-header {
-background-color: #2c3e50;
-color: white;
-text-align: center;
-padding: 2rem 0;
-}
-
-header .logo {
-width: 80px;
-height: 80px;
-border-radius: 50%;
-margin-bottom: 1rem;
-}
-
-nav {
-background-color: #34495e;
-padding: 1rem 0;
-position: sticky;
-top: 0;
-z-index: 100;
-}
-
-nav ul {
-display: flex;
-justify-content: center;
-list-style-type: none;
-flex-wrap: wrap;
-}
-
-nav ul li {
-margin: 0 1rem;
-padding: 0.5rem 1rem;
-color: white;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-nav ul li:hover {
-background-color: #2c3e50;
-border-radius: 4px;
-}
-
-.product-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-gap: 2rem;
-padding: 2rem;
-max-width: 1200px;
-margin: 0 auto;
-}
-
-.product {
-background-color: white;
-border-radius: 8px;
-overflow: hidden;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-transition: transform 0.3s ease;
-}
-
-.product:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.product img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-}
-
-.product .info {
-padding: 1.5rem;
-}
-
-.product .info h3 {
-margin-bottom: 0.5rem;
-font-size: 1.1rem;
-}
-
-.price {
-color: #27ae60;
-font-weight: bold;
-font-size: 1.2rem;
-}
-
-.original-price {
-text-decoration: line-through;
-color: #7f8c8d;
-margin-left: 0.5rem;
-font-size: 0.9rem;
-}
-
-.rating {
-color: #f1c40f;
-margin: 0.5rem 0;
-}
-
-.info a {
-display: inline-block;
-margin-top: 1rem;
-padding: 0.5rem 1rem;
-background-color: #e74c3c;
-color: white;
-text-decoration: none;
-border-radius: 4px;
-transition: background-color 0.3s ease;
-}
-
-.info a:hover {
-background-color: #c0392b;
-}
-
-.comments {
-background-color: white;
-padding: 2rem;
-margin: 2rem auto;
-max-width: 1200px;
-border-radius: 8px;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.comments h2 {
-margin-bottom: 1.5rem;
-color: #2c3e50;
-}
-
-.comment {
-padding: 1rem 0;
-border-bottom: 1px solid #ecf0f1;
-}
-
-.comment:last-child {
-border-bottom: none;
-}
-
-.comment span {
-display: block;
-margin-top: 0.5rem;
-color: #7f8c8d;
-font-style: italic;
-}
-
-footer {
-background-color: #2c3e50;
-color: white;
-text-align: center;
-padding: 1.5rem 0;
-margin-top: 2rem;
-}
-
-script.js
-const products = [
-// Home Decor
-{
-id: 1,
-name: "Modern Ceramic Flower Vase",
-category: "home-decor",
-price: 39.99,
-originalPrice: 49.99,
-rating: 4.5,
-img: "vase.jpg",
-link: "https://amzn.to/3I8fYXJ"
-},
-{
-id: 2,
-name: "Luxury Wall Mounted LED Mirror",
-category: "home-decor",
-price: 129.99,
-originalPrice: 159.99,
-rating: 4.7,
-img: "led-mirror.jpg",
-link: "https://amzn.to/44chrox"
-},
-{
-id: 3,
-name: "Portable Humidifier Diffuser",
-category: "home-decor",
-price: 29.99,
-originalPrice: 39.99,
-rating: 4.3,
-img: "humidifier.jpg",
-link: "https://amzn.to/44FgMvQ"
-},
-{
-id: 4,
-name: "Wall Mounted Wooden Shelves",
-category: "home-decor",
-price: 59.99,
-originalPrice: 79.99,
-rating: 4.6,
-img: "wooden-shelves.jpg",
-link: "https://amzn.to/4exwJYo"
-},
-{
-id: 5,
-name: "Abstract Canvas Wall Art",
-category: "home-decor",
-price: 79.99,
-originalPrice: 99.99,
-rating: 4.4,
-img: "canvas-art.jpg",
-link: "https://amzn.to/44vS3ZH"
-},
-
-// Fashion
-{
-id: 6,
-name: "Trendy Crossbody Bag",
-category: "fashion",
-price: 39.99,
-originalPrice: 49.99,
-rating: 4.6,
-img: "crossbody-bag.jpg",
-link: "https://amzn.to/40kF8Zx"
-},
-{
-id: 7,
-name: "Premium Women's Watch",
-category: "fashion",
-price: 59.99,
-originalPrice: 79.99,
-rating: 4.5,
-img: "womens-watch.jpg",
-link: "https://amzn.to/44bp52u"
-},
-{
-id: 8,
-name: "Unisex Oversized Hoodie",
-category: "fashion",
-price: 34.99,
-originalPrice: 44.99,
-rating: 4.7,
-img: "hoodie.jpg",
-link: "https://amzn.to/3ImMMfu"
-},
-{
-id: 9,
-name: "Casual Sneakers",
-category: "fashion",
-price: 49.99,
-originalPrice: 59.99,
-rating: 4.4,
-img: "sneakers.jpg",
-link: "https://amzn.to/3TO5Ndh"
-},
-{
-id: 10,
-name: "Smart Touch Winter Gloves",
-category: "fashion",
-price: 19.99,
-originalPrice: 24.99,
-rating: 4.3,
-img: "gloves.jpg",
-link: "https://amzn.to/4lEgkUx"
-},
-
-// Gadgets
-{
-id: 11,
-name: "Wireless Bluetooth Earbuds",
-category: "gadgets",
-price: 89.99,
-originalPrice: 119.99,
-rating: 4.8,
-img: "earbuds.jpg",
-link: "https://amzn.to/4l04MuG"
-},
-{
-id: 12,
-name: "Mini Portable Projector",
-category: "gadgets",
-price: 129.99,
-originalPrice: 149.99,
-rating: 4.5,
-img: "projector.jpg",
-link: "https://amzn.to/45KslD5"
-},
-{
-id: 13,
-name: "Smart LED Touch Lamp",
-category: "gadgets",
-price: 39.99,
-originalPrice: 49.99,
-rating: 4.6,
-img: "touch-lamp.jpg",
-link: "https://amzn.to/3TQsmhu"
-},
-{
-id: 14,
-name: "Wireless Fast Charging Pad",
-category: "gadgets",
-price: 29.99,
-originalPrice: 39.99,
-rating: 4.4,
-img: "charging-pad.jpg",
-link: "https://amzn.to/44nxnmv"
-},
-{
-id: 15,
-name: "Compact Power Bank",
-category: "gadgets",
-price: 49.99,
-originalPrice: 59.99,
-rating: 4.7,
-img: "powerbank.jpg",
-link: "https://amzn.to/46oiLWB"
-},
-
-// Kitchen
-{
-id: 16,
-name: "Portable Blender Bottle",
-category: "kitchen",
-price: 24.99,
-originalPrice: 29.99,
-rating: 4.5,
-img: "blender.jpg",
-link: "https://amzn.to/4ntg7VG"
-},
-{
-id: 17,
-name: "Electric Milk Frother",
-category: "kitchen",
-price: 19.99,
-originalPrice: 24.99,
-rating: 4.3,
-img: "milk-frother.jpg",
-link: "https://amzn.to/4nshJz7"
-},
-{
-id: 18,
-name: "Silicone Cooking Utensils",
-category: "kitchen",
-price: 29.99,
-originalPrice: 39.99,
-rating: 4.7,
-img: "utensils.jpg",
-link: "https://amzn.to/4epqwO0"
-},
-{
-id: 19,
-name: "Digital Kitchen Scale",
-category: "kitchen",
-price: 15.99,
-originalPrice: 19.99,
-rating: 4.6,
-img: "kitchen-scale.jpg",
-link: "https://amzn.to/44hWeIk"
-},
-{
-id: 20,
-name: "Non-stick Frying Pan",
-category: "kitchen",
-price: 39.99,
-originalPrice: 49.99,
-rating: 4.5,
-img: "frying-pan.jpg",
-link: "https://amzn.to/44m2dvW"
-},
-
-// Beauty
-{
-id: 21,
-name: "LED Vanity Mirror",
-category: "beauty",
-price: 59.99,
-originalPrice: 79.99,
-rating: 4.7,
-img: "vanity-mirror.jpg",
-link: "https://amzn.to/46jamDW"
-},
-{
-id: 22,
-name: "Electric Facial Cleanser",
-category: "beauty",
-price: 39.99,
-originalPrice: 49.99,
-rating: 4.4,
-img: "facial-brush.jpg",
-link: "https://amzn.to/46kEZsy"
-},
-{
-id: 23,
-name: "Hair Straightener Brush",
-category: "beauty",
-price: 49.99,
-originalPrice: 59.99,
-rating: 4.6,
-img: "hair-brush.jpg",
-link: "https://amzn.to/45LbkIZ"
-},
-{
-id: 24,
-name: "Essential Oil Diffuser",
-category: "beauty",
-price: 29.99,
-originalPrice: 39.99,
-rating: 4.5,
-img: "oil-diffuser.jpg",
-link: "https://amzn.to/4kgYwgQ"
-},
-{
-id: 25,
-name: "Mini Skincare Fridge",
-category: "beauty",
-price: 69.99,
-originalPrice: 89.99,
-rating: 4.3,
-img: "skincare-fridge.jpg",
-link: "https://amzn.to/4l8OD6r"
-}
-];
-
-function showProducts(filtered) {
-const container = document.getElementById('products');
-container.innerHTML = '';
-
-products.filter(item => filtered === 'all' || item.category === filtered)
-.forEach(item => {
-const starRating = '⭐'.repeat(Math.round(item.rating)) + '☆'.repeat(5 - Math.round(item.rating));
-container.innerHTML += `
-<div class="product">
-<img src="${item.img}" alt="${item.name}">
-<div class="info">
-<h3>${item.name}</h3>
-<div class="rating">${starRating}</div>
-<div>
-<span class="price">$${item.price.toFixed(2)}</span>
-<span class="original-price">$${item.originalPrice.toFixed(2)}</span>
-</div>
-<a href="${item.link}" target="_blank">View Product</a>
-</div>
-</div>
-`;
-});
-}
-
-function filterProducts(category) {
-showProducts(category);
-}
-
-window.onload = () => showProducts('all');
-
-
-
-
-
-prompt for change 
-images are very short so please use the correct size of product images and please add some animations and add a cover photo in the home page with trending animation
