@@ -1,69 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nex Gadgetry</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nex Gadgetry</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="loader">
-        <div class="loader-circle"></div>
-    </div>
-    
-    <header>
-        <img src="https://via.placeholder.com/80" alt="Nex Gadgetry Logo" class="logo animate__animated animate__bounceIn">
-        <h1 class="animate__animated animate__fadeIn">Nex Gadgetry</h1>
-        <p class="animate__animated animate__fadeIn animate__delay-1s">Your One-Stop Gadget & Lifestyle Store</p>
-    </header>
 
-    <section class="hero animate__animated animate__fadeIn">
-        <div class="hero-content">
-            <h2>Trending This Week</h2>
-            <p>Discover our hottest products with exclusive discounts</p>
-            <button class="cta-button" onclick="filterProducts('all')">Shop Now</button>
-        </div>
-        <div class="trending-badge animate__animated animate__pulse animate__infinite">
-            <span>🔥 HOT</span>
-        </div>
-    </section>
+<header>
+<img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
+<h1>Nex Gadgetry</h1>
+<p>Your One-Stop Gadget & Lifestyle Store</p>
+</header>
 
-    <nav>
-        <ul>
-            <li onclick="filterProducts('all')" class="animate__animated animate__fadeIn">All</li>
-            <li onclick="filterProducts('home-decor')" class="animate__animated animate__fadeIn animate__delay-1s">Home Decor</li>
-            <li onclick="filterProducts('fashion')" class="animate__animated animate__fadeIn animate__delay-2s">Fashion</li>
-            <li onclick="filterProducts('gadgets')" class="animate__animated animate__fadeIn animate__delay-3s">Gadgets</li>
-            <li onclick="filterProducts('kitchen')" class="animate__animated animate__fadeIn animate__delay-4s">Kitchen</li>
-            <li onclick="filterProducts('beauty')" class="animate__animated animate__fadeIn animate__delay-5s">Beauty</li>
-        </ul>
-    </nav>
+<nav>
+<ul>
+<li onclick="filterProducts('all')">All</li>
+<li onclick="filterProducts('home')">Home Decor</li>
+<li onclick="filterProducts('fashion')">Fashion</li>
+<li onclick="filterProducts('gadgets')">Gadgets</li>
+<li onclick="filterProducts('kitchen')">Kitchen</li>
+<li onclick="filterProducts('beauty')">Beauty</li>
+</ul>
+</nav>
 
-    <section id="products" class="product-grid">
-        <!-- Products will load here -->
-    </section>
+<section id="products" class="product-grid">
+<!-- Products load dynamically from JS -->
+</section>
 
-    <section class="comments">
-        <h2>Customer Reviews</h2>
-        <div class="comment">
-            <p>⭐️⭐️⭐️⭐️⭐️ Amazing quality! Totally worth it.</p>
-            <span>- Jessica</span>
-        </div>
-        <div class="comment">
-            <p>⭐️⭐️⭐️⭐️ Got my product on time. Looks premium!</p>
-            <span>- Mark</span>
-        </div>
-        <div class="comment">
-            <p>⭐️⭐️⭐️⭐️⭐️ Loved it! Highly recommend this store.</p>
-            <span>- Emily</span>
-        </div>
-    </section>
+<section class="comments">
+<h2>Customer Reviews</h2>
+<div class="comment">
+<p>⭐️⭐️⭐️⭐️⭐️ Amazing quality! Totally worth it.</p>
+<span>- Jessica</span>
+</div>
+<div class="comment">
+<p>⭐️⭐️⭐️⭐️ Got my product on time. Looks premium!</p>
+<span>- Mark</span>
+</div>
+<div class="comment">
+<p>⭐️⭐️⭐️⭐️⭐️ Loved it! Highly recommend this store.</p>
+<span>- Emily</span>
+</div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com</p>
-    </footer>
+<footer>
+<p>&copy; 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com</p>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
