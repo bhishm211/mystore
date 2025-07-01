@@ -1,62 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nex Gadgetry</title>
-    <link rel="stylesheet" href="styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nex Gadgetry</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
-            <h1>Nex Gadgetry</h1>
-            <p class="tagline">Your One-Stop Gadget & Lifestyle Store</p>
-        </div>
-    </header>
 
-    <nav class="main-nav">
-        <ul class="nav-list">
-            <li class="nav-item" onclick="filterProducts('all')">All</li>
-            <li class="nav-item" onclick="filterProducts('home')">Home Decor</li>
-            <li class="nav-item" onclick="filterProducts('fashion')">Fashion</li>
-            <li class="nav-item" onclick="filterProducts('gadgets')">Gadgets</li>
-            <li class="nav-item" onclick="filterProducts('kitchen')">Kitchen</li>
-            <li class="nav-item" onclick="filterProducts('beauty')">Beauty</li>
-        </ul>
-    </nav>
+<header>
+  <img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
+  <h1>Nex Gadgetry</h1>
+  <p>Your One-Stop Gadget & Lifestyle Store</p>
+</header>
 
-    <main>
-        <section id="products" class="product-grid">
-            <!-- Products load dynamically from JS -->
-        </section>
+<nav>
+  <ul>
+    <li onclick="filterProducts('all')">All</li>
+    <li onclick="filterProducts('home')">Home Decor</li>
+    <li onclick="filterProducts('fashion')">Fashion</li>
+    <li onclick="filterProducts('gadgets')">Gadgets</li>
+    <li onclick="filterProducts('kitchen')">Kitchen</li>
+    <li onclick="filterProducts('beauty')">Beauty</li>
+  </ul>
+</nav>
 
-        <section class="comments">
-            <h2 class="section-title">Customer Reviews</h2>
-            <div class="comment-list">
-                <div class="comment-card">
-                    <p class="comment-text">⭐️⭐️⭐️⭐️⭐️ Amazing quality! Totally worth it.</p>
-                    <span class="comment-author">- Jessica</span>
-                </div>
-                <div class="comment-card">
-                    <p class="comment-text">⭐️⭐️⭐️⭐️ Got my product on time. Looks premium!</p>
-                    <span class="comment-author">- Mark</span>
-                </div>
-                <div class="comment-card">
-                    <p class="comment-text">⭐️⭐️⭐️⭐️⭐️ Loved it! Highly recommend this store.</p>
-                    <span class="comment-author">- Emily</span>
-                </div>
-            </div>
-        </section>
-    </main>
+<section id="products" class="product-grid">
+  <!-- Products load dynamically from JS -->
+</section>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p class="copyright">© 2025 Nex Gadgetry</p>
-            <p class="contact">Contact: officialreviewsway@gmail.com</p>
-        </div>
-    </footer>
+<section class="comments">
+  <h2>Customer Reviews</h2>
+  <div class="comment">
+    <p>⭐️⭐️⭐️⭐️⭐️ Amazing quality! Totally worth it.</p>
+    <span>- Jessica</span>
+  </div>
+  <div class="comment">
+    <p>⭐️⭐️⭐️⭐️ Got my product on time. Looks premium!</p>
+    <span>- Mark</span>
+  </div>
+  <div class="comment">
+    <p>⭐️⭐️⭐️⭐️⭐️ Loved it! Highly recommend this store.</p>
+    <span>- Emily</span>
+  </div>
+</section>
 
-    <script src="scripts/app.js"></script>
+<footer>
+  <p>&copy; 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
