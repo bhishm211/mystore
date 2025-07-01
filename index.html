@@ -1,142 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nex Gadgetry - Find Trending Products</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-        body{background:#f9f9f9;color:#333;}
-        header{background:#fff;padding:20px 40px;box-shadow:0 2px 8px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;}
-        .logo{font-size:2rem;font-weight:700;color:#FF4B91;}
-        nav a{margin:0 15px;color:#444;text-decoration:none;font-weight:500;transition:.3s;}
-        nav a:hover{color:#FF4B91;}
-        .search{padding:7px 15px;border:1px solid #ccc;border-radius:20px;outline:none;}
-        .hero{text-align:center;padding:60px 20px;background:linear-gradient(to right,#ffe1e8,#ffe9f0);}
-        .hero h1{font-size:3rem;margin-bottom:10px;}
-        .hero p{font-size:1.1rem;color:#555;}
-        .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:40px;}
-        .card{background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:.3s;}
-        .card:hover{transform:translateY(-5px);box-shadow:0 6px 24px rgba(0,0,0,0.15);}
-        .card img{width:100px;height:100px;object-fit:contain;margin-bottom:15px;}
-        .card h3{font-size:1.2rem;margin-bottom:8px;}
-        .card p{color:#666;font-size:.95rem;margin-bottom:15px;}
-        .card a{background:linear-gradient(to right,#FF4B91,#FF9068);color:#fff;padding:10px 20px;border-radius:25px;text-decoration:none;font-weight:600;transition:.3s;}
-        .card a:hover{background:linear-gradient(to right,#ff6aab,#ff7e58);}
-        footer{background:#fff;text-align:center;padding:15px;font-size:.9rem;color:#777;border-top:1px solid #eee;}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nex Gadgetry - Trendy Products Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body {background-color:#f5f5f5;color:#333;}
+    header {background-color:#fff;padding:15px 30px;box-shadow:0 4px 12px rgba(0,0,0,0.1);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:999;}
+    .logo {font-size:2rem;font-weight:700;color:#FF4B91;}
+    nav a {margin:0 15px;color:#333;text-decoration:none;font-weight:500;transition:color .3s;}
+    nav a:hover {color:#FF4B91;}
+    .search {padding:8px 16px;border:1px solid #ccc;border-radius:20px;outline:none;}
+    .hero {padding:60px 20px;text-align:center;background:linear-gradient(to right,#ffe1e8,#ffe9f0);}
+    .hero h1 {font-size:3rem;margin-bottom:10px;}
+    .hero p {color:#555;font-size:1.1rem;}
+    .products {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:40px;}
+    .card {background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:20px;text-align:center;transition:transform .3s,box-shadow .3s;}
+    .card:hover {transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.15);}
+    .card img {width:120px;height:120px;object-fit:contain;margin-bottom:15px;}
+    .card h3 {font-size:1.2rem;margin-bottom:8px;}
+    .card p {font-size:0.9rem;color:#666;margin-bottom:12px;}
+    .card .rating {color:#FFB400;font-size:1rem;margin-bottom:8px;}
+    .card a {background:linear-gradient(to right,#FF4B91,#FF9068);color:#fff;padding:8px 18px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-block;transition:.3s;}
+    .card a:hover {background:linear-gradient(to right,#ff6aab,#ff7e58);}
+    .reviews {padding:30px;background:#fff;margin:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    .reviews h2 {text-align:center;margin-bottom:20px;color:#333;}
+    .review-box {display:flex;flex-direction:column;gap:15px;}
+    .review {background:#fafafa;padding:15px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+    .review span {color:#FFB400;}
+    footer {background:#fff;text-align:center;padding:15px;color:#777;border-top:1px solid #eee;}
+  </style>
 </head>
 <body>
 
 <header>
-    <div class="logo"><img src="logo.png" alt="Nex Gadgetry" style="height:40px;vertical-align:middle;"> Nex Gadgetry</div>
-    <nav>
-        <a href="#home-decor">Home Decor</a>
-        <a href="#fashion">Fashion</a>
-        <a href="#gadgets">Gadgets</a>
-        <a href="#kitchen">Kitchen</a>
-        <a href="#beauty">Beauty</a>
-    </nav>
-    <input type="text" id="search" onkeyup="searchProducts()" class="search" placeholder="Search...">
+  <div class="logo"><img src="logo.png" style="height:40px;vertical-align:middle;"> Nex Gadgetry</div>
+  <nav>
+    <a href="#" onclick="filterProducts('all')">All</a>
+    <a href="#" onclick="filterProducts('Home Decor')">Home Decor</a>
+    <a href="#" onclick="filterProducts('Fashion')">Fashion</a>
+    <a href="#" onclick="filterProducts('Gadgets')">Gadgets</a>
+    <a href="#" onclick="filterProducts('Kitchen')">Kitchen</a>
+    <a href="#" onclick="filterProducts('Beauty')">Beauty</a>
+  </nav>
+  <input type="text" id="search" class="search" onkeyup="searchProducts()" placeholder="Search Products...">
 </header>
 
 <section class="hero">
-    <h1>Welcome to Nex Gadgetry ✨</h1>
-    <p>Discover Trending Products in Home, Fashion, Gadgets, Kitchen, and Beauty!</p>
+  <h1>Welcome to Nex Gadgetry ✨</h1>
+  <p>Find Trending Products for Home, Fashion, Beauty & More!</p>
 </section>
 
-<!-- Home Decor -->
-<section class="products" id="home-decor">
-    <h2>🏠 Home Decor</h2>
+<section class="products" id="productContainer">
 
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/51Example1.jpg" alt="Elegant Vase">
-        <h3>Elegant Vase</h3>
-        <p>Perfect for modern home decor.</p>
-        <a href="https://amzn.to/4erCC9o" target="_blank">Shop Now</a>
-    </div>
-    
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/51Example2.jpg" alt="Wall Hanging Lights">
-        <h3>Wall Hanging Lights</h3>
-        <p>Beautiful warm lighting for living spaces.</p>
-        <a href="https://amzn.to/3TQ5q1P" target="_blank">Shop Now</a>
-    </div>
+  <!-- Example Product Card -->
+  <div class="card" data-category="Home Decor">
+    <img src="https://m.media-amazon.com/images/I/71dX+VxxoYL._AC_SX679_.jpg" alt="LED Moon Lamp">
+    <h3>LED Moon Lamp</h3>
+    <p>Beautiful moon lamp for cozy home vibes.</p>
+    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
+    <a href="https://amzn.to/4erCC9o" target="_blank">Shop Now</a>
+  </div>
 
-</section>
+  <div class="card" data-category="Gadgets">
+    <img src="https://m.media-amazon.com/images/I/61b1j5sHBrL._AC_SX679_.jpg" alt="Wireless Earbuds">
+    <h3>Wireless Earbuds</h3>
+    <p>Noise cancelling earbuds with long battery life.</p>
+    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
+    <a href="https://amzn.to/3TQ5q1P" target="_blank">Shop Now</a>
+  </div>
 
-<!-- Fashion -->
-<section class="products" id="fashion">
-    <h2>👗 Fashion</h2>
+  <div class="card" data-category="Kitchen">
+    <img src="https://m.media-amazon.com/images/I/61u5f5UKlEL._AC_SX679_.jpg" alt="Portable Blender">
+    <h3>Portable Blender</h3>
+    <p>Make smoothies anywhere, anytime.</p>
+    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
+    <a href="https://amzn.to/4etvCZR" target="_blank">Shop Now</a>
+  </div>
 
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61tT8kxK3LL._AC_UL480_FMwebp_.jpg" alt="Stylish White Sneakers">
-        <h3>Stylish White Sneakers</h3>
-        <p>Trendy, breathable, and versatile footwear.</p>
-        <a href="https://amzn.to/4lzu173" target="_blank">Shop Now</a>
-    </div>
+  <div class="card" data-category="Fashion">
+    <img src="https://m.media-amazon.com/images/I/71LM1nP77wL._AC_UL1500_.jpg" alt="Stylish Handbag">
+    <h3>Stylish Handbag</h3>
+    <p>Perfect fashion accessory for any occasion.</p>
+    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
+    <a href="https://amzn.to/3TQ5q1P" target="_blank">Shop Now</a>
+  </div>
 
-</section>
-
-<!-- Gadgets -->
-<section class="products" id="gadgets">
-    <h2>🔌 Gadgets</h2>
-
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/71hIu05GZSL._AC_SL1500_.jpg" alt="Bluetooth Wireless Earbuds">
-        <h3>Bluetooth Wireless Earbuds</h3>
-        <p>Noise cancellation & crystal-clear sound.</p>
-        <a href="https://amzn.to/3I5uf7v" target="_blank">Shop Now</a>
-    </div>
-
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/81AxRO7qH8L._AC_SL1500_.jpg" alt="Portable Mini Bluetooth Speaker">
-        <h3>Portable Mini Bluetooth Speaker</h3>
-        <p>Compact, waterproof & powerful bass.</p>
-        <a href="https://amzn.to/447NkhY" target="_blank">Shop Now</a>
-    </div>
+  <div class="card" data-category="Beauty">
+    <img src="https://m.media-amazon.com/images/I/61jPq5zCEBL._AC_SX679_.jpg" alt="Makeup Kit">
+    <h3>Professional Makeup Kit</h3>
+    <p>All-in-one kit for flawless makeup.</p>
+    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
+    <a href="https://amzn.to/4erCC9o" target="_blank">Shop Now</a>
+  </div>
 
 </section>
 
-<!-- Kitchen -->
-<section class="products" id="kitchen">
-    <h2>🍳 Kitchen</h2>
-
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61v5dOVdpYL._AC_SL1500_.jpg" alt="Electric Kettle">
-        <h3>Electric Kettle</h3>
-        <p>Fast boiling kettle with auto shut-off.</p>
-        <a href="https://amzn.to/44PrPlh" target="_blank">Shop Now</a>
-    </div>
-
-</section>
-
-<!-- Beauty -->
-<section class="products" id="beauty">
-    <h2>💄 Beauty</h2>
-
-    <div class="card">
-        <img src="https://m.media-amazon.com/images/I/61OeC1v9MXL._AC_SL1500_.jpg" alt="Professional Hair Dryer">
-        <h3>Professional Hair Dryer</h3>
-        <p>Fast drying hair dryer with heat protection.</p>
-        <a href="https://amzn.to/4eu0E3L" target="_blank">Shop Now</a>
-    </div>
-
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="review-box">
+    <div class="review"><span>⭐⭐⭐⭐⭐</span> - "Absolutely loved the products! Highly recommended."</div>
+    <div class="review"><span>⭐⭐⭐⭐✰</span> - "Fast delivery, great quality."</div>
+    <div class="review"><span>⭐⭐⭐⭐✰</span> - "Product exactly as shown. Thank you Nex Gadgetry!"</div>
+    <div class="review"><span>⭐⭐⭐⭐⭐</span> - "Reliable store with amazing gadgets."</div>
+  </div>
 </section>
 
 <footer>
-    © 2025 Nex Gadgetry | All Rights Reserved
+  © 2025 Nex Gadgetry | Privacy Policy | Refund Policy | Contact: officialreviewsway@gmail.com
 </footer>
 
 <script>
-function searchProducts() {
-    const input = document.getElementById('search').value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? 'block' : 'none';
-    });
+function searchProducts(){
+  const input = document.getElementById('search').value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(input) ? 'block' : 'none';
+  });
+}
+
+function filterProducts(category){
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if(category === 'all'){
+      card.style.display = 'block';
+    } else {
+      const cardCategory = card.getAttribute('data-category');
+      card.style.display = cardCategory === category ? 'block' : 'none';
+    }
+  });
 }
 </script>
 
