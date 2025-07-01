@@ -39,22 +39,22 @@ function showProducts(filtered) {
   const container = document.getElementById('products');
   container.innerHTML = '';
   products.filter(item => filtered === 'all' || item.category === filtered)
-    .forEach(item => {
-      container.innerHTML += `
-        <div class="product">
-          <img src="${item.img}" alt="${item.name}">
-          <div class="info">
-            <h3>${item.name}</h3>
-            <div class="rating">${item.rating}</div>
-            <div>
-              <span class="price">${item.price}</span>
-              <span class="original-price">${item.original}</span>
-            </div>
-            <a href="${item.link}" target="_blank">View Product</a>
+  .forEach(item => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="info">
+          <h3>${item.name}</h3>
+          <div class="rating">${item.rating}</div>
+          <div>
+            <span class="price">${item.price}</span>
+            <span class="original-price">${item.original}</span>
           </div>
+          <a href="${item.link}" target="_blank">Buy Now</a>
         </div>
-      `;
-    });
+      </div>
+    `;
+  });
 }
 
 function filterProducts(category) {
