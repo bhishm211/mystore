@@ -1,137 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nex Gadgetry - Trendy Products Store</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body {background-color:#f5f5f5;color:#333;}
-    header {background-color:#fff;padding:15px 30px;box-shadow:0 4px 12px rgba(0,0,0,0.1);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:999;}
-    .logo {font-size:2rem;font-weight:700;color:#FF4B91;}
-    nav a {margin:0 15px;color:#333;text-decoration:none;font-weight:500;transition:color .3s;}
-    nav a:hover {color:#FF4B91;}
-    .search {padding:8px 16px;border:1px solid #ccc;border-radius:20px;outline:none;}
-    .hero {padding:60px 20px;text-align:center;background:linear-gradient(to right,#ffe1e8,#ffe9f0);}
-    .hero h1 {font-size:3rem;margin-bottom:10px;}
-    .hero p {color:#555;font-size:1.1rem;}
-    .products {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:40px;}
-    .card {background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:20px;text-align:center;transition:transform .3s,box-shadow .3s;}
-    .card:hover {transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.15);}
-    .card img {width:120px;height:120px;object-fit:contain;margin-bottom:15px;}
-    .card h3 {font-size:1.2rem;margin-bottom:8px;}
-    .card p {font-size:0.9rem;color:#666;margin-bottom:12px;}
-    .card .rating {color:#FFB400;font-size:1rem;margin-bottom:8px;}
-    .card a {background:linear-gradient(to right,#FF4B91,#FF9068);color:#fff;padding:8px 18px;border-radius:25px;text-decoration:none;font-weight:600;display:inline-block;transition:.3s;}
-    .card a:hover {background:linear-gradient(to right,#ff6aab,#ff7e58);}
-    .reviews {padding:30px;background:#fff;margin:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-    .reviews h2 {text-align:center;margin-bottom:20px;color:#333;}
-    .review-box {display:flex;flex-direction:column;gap:15px;}
-    .review {background:#fafafa;padding:15px;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-    .review span {color:#FFB400;}
-    footer {background:#fff;text-align:center;padding:15px;color:#777;border-top:1px solid #eee;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nex Gadgetry - Premium Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+        body {background:#f4f6f8; color:#333;}
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            padding:20px 40px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            box-shadow:0 4px 20px rgba(0,0,0,0.1);
+            position:sticky;
+            top:0;
+            z-index:1000;
+        }
+        .logo img {
+            height:50px;
+        }
+        nav a {
+            margin: 0 15px;
+            color:#fff;
+            text-decoration:none;
+            font-weight:500;
+            transition:color 0.3s ease;
+        }
+        nav a:hover {
+            color:#ffe600;
+        }
+        .search {
+            padding:7px 15px;
+            border-radius:20px;
+            border:none;
+            outline:none;
+            box-shadow:0 0 8px rgba(0,0,0,0.2);
+        }
+
+        /* Hero */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1587825140708-6b3f9dd9ed42?auto=format&fit=crop&w=1350&q=80') center/cover;
+            color:white;
+            text-align:center;
+            padding:80px 20px;
+            animation:fadeIn 1.5s;
+        }
+        .hero h1 {
+            font-size:3rem;
+            margin-bottom:10px;
+            text-shadow:2px 2px 8px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size:1.2rem;
+        }
+
+        /* Products */
+        .products {
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+            gap:20px;
+            padding:40px;
+        }
+        .card {
+            background:#fff;
+            border-radius:16px;
+            box-shadow:0 4px 20px rgba(0,0,0,0.1);
+            padding:20px;
+            text-align:center;
+            transition:transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform:translateY(-5px) scale(1.02);
+            box-shadow:0 6px 24px rgba(0,0,0,0.2);
+        }
+        .card img {
+            width:100px;
+            height:100px;
+            object-fit:contain;
+            margin-bottom:15px;
+        }
+        .card h3 {
+            font-size:1.2rem;
+            margin-bottom:8px;
+        }
+        .card p {
+            font-size:0.95rem;
+            color:#666;
+            margin-bottom:12px;
+        }
+        .card a {
+            background: linear-gradient(90deg, #00b4db, #0083b0);
+            color:white;
+            padding:8px 20px;
+            border-radius:25px;
+            text-decoration:none;
+            display:inline-block;
+            font-weight:600;
+            transition:background 0.3s ease;
+        }
+        .card a:hover {
+            background: linear-gradient(90deg, #0083b0, #00b4db);
+        }
+
+        /* Reviews */
+        .reviews {
+            background:#fff;
+            padding:40px;
+            text-align:center;
+        }
+        .review {
+            background:#f9f9f9;
+            padding:20px;
+            margin:10px;
+            border-radius:12px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.05);
+            display:inline-block;
+            max-width:300px;
+        }
+        .review img {
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            margin-bottom:10px;
+        }
+        .review h4 {
+            margin-bottom:5px;
+        }
+        .review p {
+            font-size:0.9rem;
+            color:#555;
+        }
+
+        /* Footer */
+        footer {
+            background:#002833;
+            color:#ccc;
+            padding:20px;
+            text-align:center;
+            font-size:0.9rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {opacity:0; transform:translateY(20px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><img src="logo.png" style="height:40px;vertical-align:middle;"> Nex Gadgetry</div>
-  <nav>
-    <a href="#" onclick="filterProducts('all')">All</a>
-    <a href="#" onclick="filterProducts('Home Decor')">Home Decor</a>
-    <a href="#" onclick="filterProducts('Fashion')">Fashion</a>
-    <a href="#" onclick="filterProducts('Gadgets')">Gadgets</a>
-    <a href="#" onclick="filterProducts('Kitchen')">Kitchen</a>
-    <a href="#" onclick="filterProducts('Beauty')">Beauty</a>
-  </nav>
-  <input type="text" id="search" class="search" onkeyup="searchProducts()" placeholder="Search Products...">
+    <div class="logo">
+        <img src="logo.png" alt="Nex Gadgetry">
+    </div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Decor</a>
+        <a href="#">Fashion</a>
+        <a href="#">Gadgets</a>
+        <a href="#">Kitchen</a>
+        <a href="#">Beauty</a>
+    </nav>
+    <input type="text" id="search" onkeyup="searchProducts()" class="search" placeholder="Search...">
 </header>
 
 <section class="hero">
-  <h1>Welcome to Nex Gadgetry ✨</h1>
-  <p>Find Trending Products for Home, Fashion, Beauty & More!</p>
+    <h1>Welcome to Nex Gadgetry</h1>
+    <p>Find Trending Products in Home, Fashion, Beauty & More!</p>
 </section>
 
 <section class="products" id="productContainer">
 
-  <!-- Example Product Card -->
-  <div class="card" data-category="Home Decor">
-    <img src="https://m.media-amazon.com/images/I/71dX+VxxoYL._AC_SX679_.jpg" alt="LED Moon Lamp">
-    <h3>LED Moon Lamp</h3>
-    <p>Beautiful moon lamp for cozy home vibes.</p>
-    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
-    <a href="https://amzn.to/4erCC9o" target="_blank">Shop Now</a>
-  </div>
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71eZbM7ADEL._AC_SL1500_.jpg" alt="Elegant Vase">
+        <h3>Elegant Ceramic Vase</h3>
+        <p>Perfect for modern home decor.</p>
+        <a href="#">Shop Now</a>
+    </div>
 
-  <div class="card" data-category="Gadgets">
-    <img src="https://m.media-amazon.com/images/I/61b1j5sHBrL._AC_SX679_.jpg" alt="Wireless Earbuds">
-    <h3>Wireless Earbuds</h3>
-    <p>Noise cancelling earbuds with long battery life.</p>
-    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
-    <a href="https://amzn.to/3TQ5q1P" target="_blank">Shop Now</a>
-  </div>
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/71F4+QpMfWL._AC_SL1500_.jpg" alt="Wireless Earbuds">
+        <h3>Wireless Earbuds</h3>
+        <p>Noise-canceling premium earbuds.</p>
+        <a href="#">Shop Now</a>
+    </div>
 
-  <div class="card" data-category="Kitchen">
-    <img src="https://m.media-amazon.com/images/I/61u5f5UKlEL._AC_SX679_.jpg" alt="Portable Blender">
-    <h3>Portable Blender</h3>
-    <p>Make smoothies anywhere, anytime.</p>
-    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
-    <a href="https://amzn.to/4etvCZR" target="_blank">Shop Now</a>
-  </div>
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/61a+J0Ka0xL._AC_SL1500_.jpg" alt="LED Mirror">
+        <h3>Smart LED Mirror</h3>
+        <p>Touch screen mirror with LED lights.</p>
+        <a href="#">Shop Now</a>
+    </div>
 
-  <div class="card" data-category="Fashion">
-    <img src="https://m.media-amazon.com/images/I/71LM1nP77wL._AC_UL1500_.jpg" alt="Stylish Handbag">
-    <h3>Stylish Handbag</h3>
-    <p>Perfect fashion accessory for any occasion.</p>
-    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
-    <a href="https://amzn.to/3TQ5q1P" target="_blank">Shop Now</a>
-  </div>
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/81fL8Hgip-L._AC_SL1500_.jpg" alt="Handbag">
+        <h3>Fashion Handbag</h3>
+        <p>Trendy and stylish for every occasion.</p>
+        <a href="#">Shop Now</a>
+    </div>
 
-  <div class="card" data-category="Beauty">
-    <img src="https://m.media-amazon.com/images/I/61jPq5zCEBL._AC_SX679_.jpg" alt="Makeup Kit">
-    <h3>Professional Makeup Kit</h3>
-    <p>All-in-one kit for flawless makeup.</p>
-    <div class="rating">⭐⭐⭐⭐✰ (4.5)</div>
-    <a href="https://amzn.to/4erCC9o" target="_blank">Shop Now</a>
-  </div>
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/61U9OcC1QlL._AC_SL1500_.jpg" alt="Blender">
+        <h3>Portable Blender</h3>
+        <p>Make smoothies on the go.</p>
+        <a href="#">Shop Now</a>
+    </div>
 
 </section>
 
 <section class="reviews">
-  <h2>Customer Reviews</h2>
-  <div class="review-box">
-    <div class="review"><span>⭐⭐⭐⭐⭐</span> - "Absolutely loved the products! Highly recommended."</div>
-    <div class="review"><span>⭐⭐⭐⭐✰</span> - "Fast delivery, great quality."</div>
-    <div class="review"><span>⭐⭐⭐⭐✰</span> - "Product exactly as shown. Thank you Nex Gadgetry!"</div>
-    <div class="review"><span>⭐⭐⭐⭐⭐</span> - "Reliable store with amazing gadgets."</div>
-  </div>
+    <h2>Customer Reviews ⭐⭐⭐⭐⭐</h2>
+    <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Emily">
+        <h4>Emily Johnson</h4>
+        <p>"Absolutely love the quality! Highly recommend."</p>
+    </div>
+    <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Michael">
+        <h4>Michael Smith</h4>
+        <p>"Fast delivery and premium products. Great store."</p>
+    </div>
+    <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Sophia">
+        <h4>Sophia Lee</h4>
+        <p>"Loved the gadgets! Everything works perfectly."</p>
+    </div>
+    <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="James">
+        <h4>James Miller</h4>
+        <p>"Trustworthy seller. Products are as shown."</p>
+    </div>
 </section>
 
 <footer>
-  © 2025 Nex Gadgetry | Privacy Policy | Refund Policy | Contact: officialreviewsway@gmail.com
+    © 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com
 </footer>
 
 <script>
-function searchProducts(){
-  const input = document.getElementById('search').value.toLowerCase();
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    card.style.display = text.includes(input) ? 'block' : 'none';
-  });
-}
-
-function filterProducts(category){
-  const cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    if(category === 'all'){
-      card.style.display = 'block';
-    } else {
-      const cardCategory = card.getAttribute('data-category');
-      card.style.display = cardCategory === category ? 'block' : 'none';
-    }
-  });
+function searchProducts() {
+    const input = document.getElementById('search').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? 'block' : 'none';
+    });
 }
 </script>
 
