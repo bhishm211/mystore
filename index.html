@@ -3,36 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nex Gadgetry - Amazon Affiliate Store</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo.png" type="image/png">
+    <title>Nex Gadgetry - Find Trending Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FF4B91;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #FF4B91;
+        }
+        .search {
+            padding: 7px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, #ffe1e8, #ffe9f0);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .card a {
+            background: linear-gradient(to right, #FF4B91, #FF9068);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        .card a:hover {
+            background: linear-gradient(to right, #ff6aab, #ff7e58);
+        }
+        footer {
+            background: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
-        <h1>Nex Gadgetry</h1>
-        <p>Find the Best Home Decor, Fashion, Gadgets, Kitchen, and Beauty Products</p>
-    </header>
 
+<header>
+    <div class="logo">Nex Gadgetry</div>
     <nav>
-        <ul>
-            <li onclick="filterProducts('all')">All</li>
-            <li onclick="filterProducts('home')">Home Decor</li>
-            <li onclick="filterProducts('fashion')">Fashion</li>
-            <li onclick="filterProducts('gadgets')">Gadgets</li>
-            <li onclick="filterProducts('kitchen')">Kitchen</li>
-            <li onclick="filterProducts('beauty')">Beauty</li>
-        </ul>
+        <a href="#">Home Decor</a>
+        <a href="#">Fashion</a>
+        <a href="#">Gadgets</a>
+        <a href="#">Kitchen</a>
+        <a href="#">Beauty</a>
     </nav>
+    <input type="text" id="search" onkeyup="searchProducts()" class="search" placeholder="Search...">
+</header>
 
-    <main id="product-container">
-        <!-- Products will be injected here -->
-    </main>
+<section class="hero">
+    <h1>Welcome to Nex Gadgetry ✨</h1>
+    <p>Find Trending Products in Home, Fashion, Beauty, and More!</p>
+</section>
 
-    <footer>
-        <p>© 2025 Nex Gadgetry | Contact: <a href="mailto:officialreviewsway@gmail.com">officialreviewsway@gmail.com</a></p>
-    </footer>
+<section class="products" id="productContainer">
 
-    <script src="script.js"></script>
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51Example1.jpg" alt="Elegant Vase">
+        <h3>Elegant Vase</h3>
+        <p>Perfect for modern home decor.</p>
+        <a href="YOUR_AFFILIATE_LINK_1" target="_blank">Shop Now</a>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51Example2.jpg" alt="Wireless Earbuds">
+        <h3>Wireless Earbuds</h3>
+        <p>Noise-canceling high-quality earbuds.</p>
+        <a href="YOUR_AFFILIATE_LINK_2" target="_blank">Shop Now</a>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51Example3.jpg" alt="Smart LED Mirror">
+        <h3>Smart LED Mirror</h3>
+        <p>Touch screen mirror with LED lights.</p>
+        <a href="YOUR_AFFILIATE_LINK_3" target="_blank">Shop Now</a>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51Example4.jpg" alt="Fashion Handbag">
+        <h3>Fashion Handbag</h3>
+        <p>Trendy and stylish for every occasion.</p>
+        <a href="YOUR_AFFILIATE_LINK_4" target="_blank">Shop Now</a>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/51Example5.jpg" alt="Portable Blender">
+        <h3>Portable Blender</h3>
+        <p>Make smoothies on the go.</p>
+        <a href="YOUR_AFFILIATE_LINK_5" target="_blank">Shop Now</a>
+    </div>
+
+</section>
+
+<footer>
+    © 2025 Nex Gadgetry | All Rights Reserved
+</footer>
+
+<script>
+function searchProducts() {
+    const input = document.getElementById('search').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? 'block' : 'none';
+    });
+}
+</script>
+
 </body>
 </html>
