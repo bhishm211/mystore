@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nex Gadgetry</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
   <img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
   <h1>Nex Gadgetry</h1>
-  <p>Your One-Stop Gadget & Lifestyle Store</p>
+  <p>Your One-Stop Gadget & Lifestyle Store ✨</p>
 </header>
 
 <nav>
@@ -26,22 +25,35 @@
   </ul>
 </nav>
 
+<!-- Search Bar -->
+<div class="search-container">
+  <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+</div>
+
+<!-- Sales Notification -->
+<div id="sales-notification" class="sales-popup"></div>
+
+<!-- Theme Switch -->
+<div class="theme-switch" onclick="toggleTheme()">🌓</div>
+
 <section id="products" class="product-grid">
+  <!-- Products load dynamically -->
 </section>
 
+<!-- Customer Reviews -->
 <section class="comments">
   <h2>Customer Reviews</h2>
   <div class="comment">
-    <p>⭐️⭐️⭐️⭐️⭐️ Super fast delivery and amazing quality!</p>
-    <span>- Sophia</span>
+    <p>⭐️⭐️⭐️⭐️⭐️ Loved it! Fast delivery and awesome quality.</p>
+    <span>- Jessica</span>
   </div>
   <div class="comment">
-    <p>⭐️⭐️⭐️⭐️ Great quality, loved the design!</p>
-    <span>- Liam</span>
+    <p>⭐️⭐️⭐️⭐️ Great value for money. Will buy again!</p>
+    <span>- Mark</span>
   </div>
   <div class="comment">
-    <p>⭐️⭐️⭐️⭐️⭐️ Perfect gift item. Highly recommend.</p>
-    <span>- Emma</span>
+    <p>⭐️⭐️⭐️⭐️⭐️ Highly recommended store!</p>
+    <span>- Emily</span>
   </div>
 </section>
 
