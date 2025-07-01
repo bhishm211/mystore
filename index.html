@@ -3,34 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nex Gadgetry - Amazon Affiliate Store</title>
+    <title>Nex Gadgetry</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
+
     <header>
         <img src="logo.png" alt="Nex Gadgetry Logo" class="logo">
-        <h1>Nex Gadgetry</h1>
-        <p>Find the Best Home Decor, Fashion, Gadgets, Kitchen, and Beauty Products</p>
+        <h1>Welcome to Nex Gadgetry</h1>
+        <p>Your one-stop shop for Home, Fashion, Gadgets, Kitchen & Beauty!</p>
     </header>
 
-    <nav>
-        <ul>
-            <li onclick="filterProducts('all')">All</li>
-            <li onclick="filterProducts('home')">Home Decor</li>
-            <li onclick="filterProducts('fashion')">Fashion</li>
-            <li onclick="filterProducts('gadgets')">Gadgets</li>
-            <li onclick="filterProducts('kitchen')">Kitchen</li>
-            <li onclick="filterProducts('beauty')">Beauty</li>
-        </ul>
-    </nav>
+    <main class="products">
 
-    <main id="product-container">
-        <!-- Products will be injected here -->
+        <!-- 🏠 Home Decor -->
+        <section>
+            <h2>Home Decor</h2>
+
+            <div class="product">
+                <img src="vase.jpg" alt="Ceramic Vase">
+                <h3>Modern Ceramic Flower Vase</h3>
+                <p>Stylish centerpiece for living room.</p>
+                <a href="https://amzn.to/3I8fYXJ" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="led-mirror.jpg" alt="LED Mirror">
+                <h3>Luxury Wall Mounted LED Mirror</h3>
+                <p>Elegant touch LED mirror.</p>
+                <a href="https://amzn.to/44chrox" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="humidifier.jpg" alt="Humidifier">
+                <h3>Portable Humidifier Diffuser</h3>
+                <p>Aroma diffuser for fresh environment.</p>
+                <a href="https://amzn.to/44FgMvQ" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="shelves.jpg" alt="Wooden Shelves">
+                <h3>Wall Mounted Wooden Shelves (Set of 3)</h3>
+                <p>Minimalist decor solution.</p>
+                <a href="https://amzn.to/4exwJYo" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="canvas-art.jpg" alt="Canvas Wall Art">
+                <h3>Abstract Canvas Wall Art</h3>
+                <p>Perfect for modern wall styling.</p>
+                <a href="https://amzn.to/44vS3ZH" target="_blank">Buy Now</a>
+            </div>
+        </section>
+
+        <!-- 👗 Fashion -->
+        <section>
+            <h2>Fashion</h2>
+
+            <div class="product">
+                <img src="crossbag.jpg" alt="Crossbody Bag">
+                <h3>Trendy Crossbody Bag for Women</h3>
+                <p>Lightweight and fashionable.</p>
+                <a href="https://amzn.to/40kF8Zx" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="watch.jpg" alt="Analog Watch">
+                <h3>Premium Women's Analog Watch</h3>
+                <p>Stylish leather strap design.</p>
+                <a href="https://amzn.to/44bp52u" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="hoodie.jpg" alt="Oversized Hoodie">
+                <h3>Unisex Oversized Hoodie</h3>
+                <p>Soft, cozy, and trendy for all seasons.</p>
+                <a href="https://amzn.to/3ImMMfu" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="sneakers.jpg" alt="Sneakers">
+                <h3>Casual Sneakers for Men & Women</h3>
+                <p>Comfortable and versatile.</p>
+                <a href="https://amzn.to/3TO5Ndh" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="gloves.jpg" alt="Touch Gloves">
+                <h3>Smart Touch Winter Gloves</h3>
+                <p>Touchscreen compatible.</p>
+                <a href="https://amzn.to/4lEgkUx" target="_blank">Buy Now</a>
+            </div>
+        </section>
+
+        <!-- 🔌 Gadgets -->
+        <section>
+            <h2>Gadgets</h2>
+
+            <div class="product">
+                <img src="earbuds.jpg" alt="Bluetooth Earbuds">
+                <h3>Wireless Bluetooth Earbuds</h3>
+                <p>Noise-cancelling with long battery.</p>
+                <a href="https://amzn.to/4l04MuG" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="projector.jpg" alt="Portable Projector">
+                <h3>Mini Portable Projector</h3>
+                <p>Home theatre experience anywhere.</p>
+                <a href="https://amzn.to/45KslD5" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="lamp.jpg" alt="LED Lamp">
+                <h3>Smart LED Touch Lamp</h3>
+                <p>Multiple colors with dimmable light.</p>
+                <a href="https://amzn.to/3TQsmhu" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="charger.jpg" alt="Fast Charger">
+                <h3>Wireless Fast Charging Pad</h3>
+                <p>Qi-compatible charging.</p>
+                <a href="https://amzn.to/44nxnmv" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="powerbank.jpg" alt="Powerbank">
+                <h3>Compact Power Bank 20000mAh</h3>
+                <p>Fast charging for phones.</p>
+                <a href="https://amzn.to/46oiLWB" target="_blank">Buy Now</a>
+            </div>
+        </section>
+
+        <!-- 🍳 Kitchen Essentials -->
+        <section>
+            <h2>Kitchen Essentials</h2>
+
+            <div class="product">
+                <img src="blender.jpg" alt="Blender Bottle">
+                <h3>Portable Blender Bottle</h3>
+                <p>Blend smoothies on the go.</p>
+                <a href="https://amzn.to/4ntg7VG" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="frother.jpg" alt="Milk Frother">
+                <h3>Electric Milk Frother</h3>
+                <p>Make perfect cappuccinos & lattes.</p>
+                <a href="https://amzn.to/4nshJz7" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="utensils.jpg" alt="Cooking Utensils">
+                <h3>Silicone Cooking Utensils Set</h3>
+                <p>Heat-resistant and durable.</p>
+                <a href="https://amzn.to/4epqwO0" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="scale.jpg" alt="Kitchen Scale">
+                <h3>Digital Kitchen Scale</h3>
+                <p>Accurate measurement for recipes.</p>
+                <a href="https://amzn.to/44hWeIk" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="pan.jpg" alt="Frying Pan">
+                <h3>Non-stick Frying Pan with Lid</h3>
+                <p>Multipurpose cookware.</p>
+                <a href="https://amzn.to/44m2dvW" target="_blank">Buy Now</a>
+            </div>
+        </section>
+
+        <!-- 💄 Beauty -->
+        <section>
+            <h2>Beauty & Personal Care</h2>
+
+            <div class="product">
+                <img src="vanity.jpg" alt="Vanity Mirror">
+                <h3>LED Vanity Mirror with Lights</h3>
+                <p>Hollywood-style for perfect makeup.</p>
+                <a href="https://amzn.to/46jamDW" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="cleanser.jpg" alt="Facial Cleanser">
+                <h3>Electric Facial Cleanser Brush</h3>
+                <p>Gentle deep clean for skin.</p>
+                <a href="https://amzn.to/46kEZsy" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="hairbrush.jpg" alt="Straightener">
+                <h3>Portable Hair Straightener Brush</h3>
+                <p>Compact & travel friendly.</p>
+                <a href="https://amzn.to/45LbkIZ" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="diffuser.jpg" alt="Essential Oil Diffuser">
+                <h3>Essential Oil Diffuser with LED Lights</h3>
+                <p>Relaxing aromatherapy.</p>
+                <a href="https://amzn.to/4kgYwgQ" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product">
+                <img src="fridge.jpg" alt="Skincare Fridge">
+                <h3>Mini Skincare Fridge</h3>
+                <p>Keep cosmetics fresh & cool.</p>
+                <a href="https://amzn.to/4l8OD6r" target="_blank">Buy Now</a>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>© 2025 Nex Gadgetry | Contact: <a href="mailto:officialreviewsway@gmail.com">officialreviewsway@gmail.com</a></p>
+        <p>&copy; 2025 Nex Gadgetry | Contact: officialreviewsway@gmail.com</p>
     </footer>
 
     <script src="script.js"></script>
