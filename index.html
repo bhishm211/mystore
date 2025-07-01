@@ -34,7 +34,7 @@
     /* Header with animated background */
     .hero-header {
         position: relative;
-        height: 400px;
+        height: 500px;
         background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                     url('https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
         background-size: cover;
@@ -46,11 +46,34 @@
         text-align: center;
         color: var(--light);
         animation: backgroundZoom 20s infinite alternate;
+        overflow: hidden;
     }
     
     @keyframes backgroundZoom {
         0% { background-size: 100%; }
         100% { background-size: 120%; }
+    }
+    
+    /* Floating particles animation */
+    .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+    
+    .particle {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        animation: float linear infinite;
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
     }
     
     .logo-overlay {
@@ -60,6 +83,12 @@
         display: flex;
         align-items: center;
         z-index: 10;
+        animation: fadeInDown 1s ease-out;
+    }
+    
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     
     .logo-overlay img {
@@ -67,6 +96,11 @@
         height: 50px;
         margin-right: 10px;
         filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        transition: transform 0.5s ease;
+    }
+    
+    .logo-overlay img:hover {
+        transform: rotate(15deg) scale(1.1);
     }
     
     .logo-overlay span {
@@ -95,11 +129,21 @@
         font-size: 3.5rem;
         margin-bottom: 15px;
         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        background: linear-gradient(to right, #fff, #f5d0e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textGlow 2s infinite alternate;
+    }
+    
+    @keyframes textGlow {
+        0% { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+        100% { text-shadow: 0 0 20px rgba(255,255,255,0.8); }
     }
     
     .hero-content p {
         font-size: 1.2rem;
         margin-bottom: 25px;
+        animation: fadeIn 2s ease-in-out;
     }
     
     .cta-button {
@@ -113,11 +157,28 @@
         box-shadow: 0 4px 15px rgba(255, 75, 145, 0.4);
         transition: all 0.3s ease;
         transform: scale(1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cta-button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: 0.5s;
     }
     
     .cta-button:hover {
         transform: scale(1.05);
         box-shadow: 0 6px 20px rgba(255, 75, 145, 0.6);
+    }
+    
+    .cta-button:hover:before {
+        left: 100%;
     }
     
     /* Sticky Navigation */
@@ -131,6 +192,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: all 0.3s ease;
+    }
+    
+    .sticky-nav.scrolled {
+        padding: 10px 40px;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
     }
     
     .nav-links {
@@ -144,7 +212,7 @@
         font-weight: 500;
         position: relative;
         padding: 5px 0;
-        transition: color 0.3s;
+        transition: all 0.3s;
     }
     
     .nav-links a:hover {
@@ -200,6 +268,11 @@
         font-size: 1.5rem;
         color: var(--text);
         cursor: pointer;
+        transition: transform 0.3s;
+    }
+    
+    .mobile-menu-btn:hover {
+        transform: rotate(90deg);
     }
     
     /* Main Content */
@@ -230,6 +303,41 @@
         border-radius: 20px;
         cursor: pointer;
         transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .filter-btn:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+    
+    .filter-btn:hover:after {
+        animation: ripple 0.6s ease-out;
+    }
+    
+    @keyframes ripple {
+        0% {
+            transform: scale(0, 0);
+            opacity: 1;
+        }
+        20% {
+            transform: scale(25, 25);
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            transform: scale(40, 40);
+        }
     }
     
     .filter-btn:hover, .filter-btn.active {
@@ -244,6 +352,12 @@
         border-radius: 20px;
         background-color: var(--light);
         cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .sort-select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(255, 75, 145, 0.2);
     }
     
     /* Product Grid */
@@ -258,12 +372,19 @@
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .product-card.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
     
     .product-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-10px) scale(1.02);
         box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
     
@@ -278,17 +399,47 @@
         font-size: 0.8rem;
         font-weight: 600;
         z-index: 2;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    .product-image-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
     }
     
     .product-image {
         width: 100%;
-        height: 200px;
+        height: 100%;
         object-fit: cover;
-        transition: transform 0.5s ease;
+        transition: transform 0.8s ease;
     }
     
     .product-card:hover .product-image {
-        transform: scale(1.05);
+        transform: scale(1.1);
+    }
+    
+    .quick-view {
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,0.7);
+        color: white;
+        text-align: center;
+        padding: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .product-card:hover .quick-view {
+        bottom: 0;
     }
     
     .product-info {
@@ -328,6 +479,15 @@
         font-weight: 700;
         color: var(--primary);
         margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .original-price {
+        text-decoration: line-through;
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-left: 10px;
     }
     
     .product-rating {
@@ -356,14 +516,35 @@
         border-radius: 5px;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all 0.5s;
         text-align: center;
         text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .product-btn:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+    }
+    
+    .product-btn:hover:after {
+        animation: ripple 0.6s ease-out;
     }
     
     .product-btn:hover {
         opacity: 0.9;
         transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 75, 145, 0.4);
     }
     
     .product-reviews {
@@ -397,6 +578,56 @@
     .review-text {
         font-size: 0.8rem;
         color: var(--text-light);
+    }
+    
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+        z-index: 2000;
+        overflow-y: auto;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .modal.show {
+        opacity: 1;
+    }
+    
+    .modal-content {
+        background-color: white;
+        margin: 50px auto;
+        max-width: 800px;
+        border-radius: 10px;
+        overflow: hidden;
+        transform: translateY(-50px);
+        transition: transform 0.3s;
+        position: relative;
+    }
+    
+    .modal.show .modal-content {
+        transform: translateY(0);
+    }
+    
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+        color: var(--text);
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.3s;
+    }
+    
+    .close-modal:hover {
+        transform: rotate(90deg);
+        color: var(--primary);
     }
     
     /* Footer */
@@ -465,12 +696,12 @@
         background-color: rgba(255,255,255,0.1);
         border-radius: 50%;
         color: var(--light);
-        transition: all 0.3s;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
     .social-links a:hover {
         background: linear-gradient(to right, var(--primary), var(--secondary));
-        transform: translateY(-3px);
+        transform: translateY(-3px) scale(1.1);
     }
     
     .copyright {
@@ -482,10 +713,40 @@
         font-size: 0.9rem;
     }
     
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 100;
+    }
+    
+    .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .back-to-top:hover {
+        transform: translateY(-5px);
+    }
+    
     /* Mobile Responsiveness */
     @media (max-width: 992px) {
         .hero-header {
-            height: 350px;
+            height: 400px;
         }
         
         .hero-content h1 {
@@ -531,7 +792,7 @@
     
     @media (max-width: 768px) {
         .hero-header {
-            height: 300px;
+            height: 350px;
         }
         
         .hero-content h1 {
@@ -548,11 +809,16 @@
             width: 100%;
             margin-top: 15px;
         }
+        
+        .modal-content {
+            margin: 20px auto;
+            width: 95%;
+        }
     }
     
     @media (max-width: 576px) {
         .hero-header {
-            height: 250px;
+            height: 300px;
         }
         
         .hero-content h1 {
@@ -566,16 +832,16 @@
         .products-grid {
             grid-template-columns: 1fr;
         }
+        
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
     }
     
     /* Animations */
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
-    }
-    
-    .fade-in {
-        animation: fadeIn 1s ease-in;
     }
     
     /* Loading Spinner */
@@ -594,9 +860,34 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+    
+    /* Floating animation for featured products */
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    /* Shake animation for special offers */
+    @keyframes shake {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(5deg); }
+        75% { transform: rotate(-5deg); }
+    }
+    
+    .shake {
+        animation: shake 0.5s ease-in-out infinite;
+    }
     </style>
 </head>
 <body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+    
     <!-- Animated Header with Logo Overlay -->
     <div class="hero-header">
         <div class="logo-overlay">
@@ -611,7 +902,7 @@
     </div>
     
     <!-- Sticky Navigation -->
-    <nav class="sticky-nav">
+    <nav class="sticky-nav" id="stickyNav">
         <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
         </button>
@@ -652,6 +943,14 @@
         
         <div class="products-grid" id="productGrid">
             <!-- Products will be loaded here via JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modalContent"></div>
         </div>
     </div>
     
@@ -702,322 +1001,97 @@
         </div>
     </footer>
     
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
     <script>
-    // Product Data
+    // Enhanced Product Data with all categories
     const products = [
+        // Home Decor
         {
             id: 1,
-            title: "Unique Ceramic Flower Vase",
+            title: "Modern Ceramic Flower Vase",
             category: "home-decor",
-            description: "Premium ceramic vase for elegant home decoration with unique hand-painted design.",
+            description: "Stylish centerpiece for living room with elegant design and premium ceramic construction.",
             price: 39.99,
+            originalPrice: 49.99,
             rating: 4.5,
             reviews: [
                 { name: "Sophia", text: "Absolutely beautiful! Looks stunning on my table.", avatar: "https://randomuser.me/api/portraits/women/1.jpg" },
-                { name: "Olivia", text: "Great quality and fast delivery.", avatar: "https://randomuser.me/api/portraits/women/2.jpg" }
+                { name: "Olivia", text: "Great quality and fast delivery. Matches my decor perfectly.", avatar: "https://randomuser.me/api/portraits/women/2.jpg" }
             ],
             image: "https://m.media-amazon.com/images/I/71eZbM7ADEL._AC_SL1500_.jpg",
-            link: "https://amzn.to/4erCC9o",
+            link: "https://amzn.to/3I8fYXJ",
             badge: "Bestseller"
         },
         {
             id: 2,
-            title: "Luxury Wall Mounted Mirror with LED",
+            title: "Luxury Wall Mounted LED Mirror",
             category: "home-decor",
-            description: "Stylish wall mirror with LED lights for classy interiors and perfect lighting.",
+            description: "Elegant touch LED mirror with adjustable lighting for perfect illumination.",
             price: 129.99,
+            originalPrice: 159.99,
             rating: 4.7,
             reviews: [
                 { name: "Emily", text: "Love the lighting effect. Worth every penny!", avatar: "https://randomuser.me/api/portraits/women/3.jpg" },
-                { name: "Isabella", text: "Makes my room look premium.", avatar: "https://randomuser.me/api/portraits/women/4.jpg" }
+                { name: "Isabella", text: "Makes my room look premium and luxurious.", avatar: "https://randomuser.me/api/portraits/women/4.jpg" }
             ],
             image: "https://m.media-amazon.com/images/I/71F4+QpMfWL._AC_SL1500_.jpg",
-            link: "https://amzn.to/3TQ5q1P",
+            link: "https://amzn.to/44chrox",
             badge: "Popular"
         },
         {
             id: 3,
-            title: "Modern Table Lamp for Living Room",
+            title: "Portable Humidifier Diffuser",
             category: "home-decor",
-            description: "Decorative table lamp with warm light perfect for any room setting.",
-            price: 49.99,
+            description: "Aroma diffuser with 7 color LED lights for fresh and relaxing environment.",
+            price: 29.99,
+            originalPrice: 39.99,
             rating: 4.3,
             reviews: [
-                { name: "James", text: "Super cozy lighting, highly recommend!", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
-                { name: "Lucas", text: "Great addition to my home decor.", avatar: "https://randomuser.me/api/portraits/men/2.jpg" }
+                { name: "James", text: "Super quiet and works great with essential oils.", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
+                { name: "Lucas", text: "Perfect size for my bedroom. Love the colors.", avatar: "https://randomuser.me/api/portraits/men/2.jpg" }
             ],
-            image: "https://m.media-amazon.com/images/I/81fL8Hgip-L._AC_SL1500_.jpg",
-            link: "https://amzn.to/4etvCZR",
+            image: "https://m.media-amazon.com/images/I/61U9OcC1QlL._AC_SL1500_.jpg",
+            link: "https://amzn.to/44FgMvQ",
             badge: "New"
         },
         {
             id: 4,
-            title: "Decorative Wall Shelves - Set of 3",
+            title: "Wall Mounted Wooden Shelves (Set of 3)",
             category: "home-decor",
-            description: "Stylish wooden wall shelves for plants, books, and decor items.",
+            description: "Minimalist decor solution with sturdy construction and modern design.",
             price: 59.99,
+            originalPrice: 79.99,
             rating: 4.6,
             reviews: [
-                { name: "Amelia", text: "Very sturdy and easy to install.", avatar: "https://randomuser.me/api/portraits/women/5.jpg" },
+                { name: "Amelia", text: "Very sturdy and easy to install. Looks amazing!", avatar: "https://randomuser.me/api/portraits/women/5.jpg" },
                 { name: "Harper", text: "My plants look awesome on these shelves.", avatar: "https://randomuser.me/api/portraits/women/6.jpg" }
             ],
             image: "https://m.media-amazon.com/images/I/61a+J0Ka0xL._AC_SL1500_.jpg",
-            link: "https://amzn.to/4erCC9o",
+            link: "https://amzn.to/4exwJYo",
             badge: ""
         },
         {
             id: 5,
-            title: "Abstract Wall Art Canvas Set",
+            title: "Abstract Canvas Wall Art",
             category: "home-decor",
-            description: "Beautiful abstract artwork to enhance your living space with vibrant colors.",
+            description: "Perfect for modern wall styling with vibrant colors and premium canvas.",
             price: 79.99,
+            originalPrice: 99.99,
             rating: 4.4,
             reviews: [
                 { name: "Evelyn", text: "Colors are vibrant and quality is top-notch.", avatar: "https://randomuser.me/api/portraits/women/7.jpg" },
-                { name: "Abigail", text: "Looks exactly like the pictures!", avatar: "https://randomuser.me/api/portraits/women/8.jpg" }
+                { name: "Abigail", text: "Looks exactly like the pictures! Great addition to my living room.", avatar: "https://randomuser.me/api/portraits/women/8.jpg" }
             ],
-            image: "https://m.media-amazon.com/images/I/61U9OcC1QlL._AC_SL1500_.jpg",
-            link: "https://amzn.to/3TQ5q1P",
-            badge: ""
+            image: "https://m.media-amazon.com/images/I/81fL8Hgip-L._AC_SL1500_.jpg",
+            link: "https://amzn.to/44vS3ZH",
+            badge: "Sale"
         },
+        
+        // Fashion
         {
             id: 6,
-            title: "Wireless Bluetooth Headphones",
-            category: "gadgets",
-            description: "Premium sound quality with noise cancellation and 30-hour battery life.",
-            price: 89.99,
-            rating: 4.8,
-            reviews: [
-                { name: "Michael", text: "Best headphones I've ever owned!", avatar: "https://randomuser.me/api/portraits/men/3.jpg" },
-                { name: "Daniel", text: "Great sound and very comfortable.", avatar: "https://randomuser.me/api/portraits/men/4.jpg" }
-            ],
-            image: "https://m.media-amazon.com/images/I/61BGE6iu4AL._AC_SL1500_.jpg",
-            link: "https://amzn.to/4etvCZR",
-            badge: "Bestseller"
-        },
-        {
-            id: 7,
-            title: "Smart Watch with Fitness Tracker",
-            category: "gadgets",
-            description: "Track your heart rate, steps, sleep and more with this stylish smartwatch.",
-            price: 129.99,
-            rating: 4.5,
-            reviews: [
-                { name: "Emma", text: "Love all the health tracking features.", avatar: "https://randomuser.me/api/portraits/women/9.jpg" },
-                { name: "Charlotte", text: "Battery lasts a whole week!", avatar: "https://randomuser.me/api/portraits/women/10.jpg" }
-            ],
-            image: "https://m.media-amazon.com/images/I/71Swqqe7XAL._AC_SL1500_.jpg",
-            link: "https://amzn.to/4erCC9o",
-            badge: "Popular"
-        },
-        {
-            id: 8,
-            title: "Silk Blouse with Floral Print",
-            category: "fashion",
-            description: "Elegant silk blouse with unique floral pattern, perfect for any occasion.",
-            price: 59.99,
-            rating: 4.6,
-            reviews: [
-                { name: "Ava", text: "So comfortable and looks expensive.", avatar: "https://randomuser.me/api/portraits/women/11.jpg" },
-                { name: "Mia", text: "Received many compliments!", avatar: "https://randomuser.me/api/portraits/women/12.jpg" }
-            ],
-            image: "https://m.media-amazon.com/images/I/61Qw1YtXJVL._AC_SL1500_.jpg",
-            link: "https://amzn.to/3TQ5q1P",
-            badge: "New"
-        },
-        {
-            id: 9,
-            title: "Stainless Steel Cookware Set",
-            category: "kitchen",
-            description: "10-piece professional cookware set with even heat distribution.",
-            price: 199.99,
-            rating: 4.7,
-            reviews: [
-                { name: "William", text: "Cooks evenly and cleans easily.", avatar: "https://randomuser.me/api/portraits/men/5.jpg" },
-                { name: "Alexander", text: "Great quality for the price.", avatar: "https://randomuser.me/api/portraits/men/6.jpg" }
-            ],
-            image: "https://m.media-amazon.com/images/I/71X7I7a1mSL._AC_SL1500_.jpg",
-            link: "https://amzn.to/4etvCZR",
-            badge: "Bestseller"
-        },
-        {
-            id: 10,
-            title: "Anti-Aging Skincare Set",
-            category: "beauty",
-            description: "Complete skincare routine with cleanser, serum and moisturizer.",
-            price: 89.99,
-            rating: 4.4,
-            reviews: [
-                { name: "Elizabeth", text: "My skin has never looked better!", avatar: "https://randomuser.me/api/portraits/women/13.jpg" },
-                { name: "Sofia", text: "Worth every penny, visible results.", avatar: "https://randomuser.me/api/portraits/women/14.jpg" }
-            ],
-            image: "https://m.media-amazon.com/images/I/71N-9h0f8JL._AC_SL1500_.jpg",
-            link: "https://amzn.to/4erCC9o",
-            badge: ""
-        }
-    ];
-    
-    // DOM Elements
-    const productGrid = document.getElementById('productGrid');
-    const searchInput = document.getElementById('searchInput');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const filterLinks = document.querySelectorAll('.filter-link');
-    const sortSelect = document.getElementById('sortSelect');
-    const loadingSpinner = document.getElementById('loadingSpinner');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
-    
-    // Variables
-    let currentCategory = 'all';
-    let currentSort = 'default';
-    let searchQuery = '';
-    
-    // Initialize the page
-    document.addEventListener('DOMContentLoaded', () => {
-        displayProducts(products);
-        
-        // Mobile menu toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Filter buttons
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentCategory = btn.dataset.category;
-                filterAndSortProducts();
-            });
-        });
-        
-        // Filter links in nav
-        filterLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                filterLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                currentCategory = link.dataset.category;
-                filterAndSortProducts();
-                navLinks.classList.remove('active');
-            });
-        });
-        
-        // Search input
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.toLowerCase();
-            filterAndSortProducts();
-        });
-        
-        // Sort select
-        sortSelect.addEventListener('change', (e) => {
-            currentSort = e.target.value;
-            filterAndSortProducts();
-        });
-    });
-    
-    // Display products
-    function displayProducts(productsToDisplay) {
-        loadingSpinner.style.display = 'block';
-        productGrid.innerHTML = '';
-        
-        // Simulate loading delay
-        setTimeout(() => {
-            if (productsToDisplay.length === 0) {
-                productGrid.innerHTML = '<p style="grid-column:1/-1;text-align:center;">No products found matching your criteria.</p>';
-            } else {
-                productsToDisplay.forEach(product => {
-                    const productCard = document.createElement('div');
-                    productCard.className = 'product-card fade-in';
-                    productCard.innerHTML = `
-                        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
-                        <img src="${product.image}" alt="${product.title}" class="product-image">
-                        <div class="product-info">
-                            <div class="product-category">${formatCategory(product.category)}</div>
-                            <h3 class="product-title">${product.title}</h3>
-                            <p class="product-description">${product.description}</p>
-                            <div class="product-price">$${product.price.toFixed(2)}</div>
-                            <div class="product-rating">
-                                <div class="stars">
-                                    ${generateStarRating(product.rating)}
-                                </div>
-                                <span class="rating-count">${product.reviews.length} reviews</span>
-                            </div>
-                            <a href="${product.link}" target="_blank" class="product-btn">Shop Now</a>
-                            <div class="product-reviews">
-                                ${generateRecentReviews(product.reviews)}
-                            </div>
-                        </div>
-                    `;
-                    productGrid.appendChild(productCard);
-                });
-            }
-            loadingSpinner.style.display = 'none';
-        }, 500);
-    }
-    
-    // Filter and sort products
-    function filterAndSortProducts() {
-        let filteredProducts = [...products];
-        
-        // Filter by category
-        if (currentCategory !== 'all') {
-            filteredProducts = filteredProducts.filter(product => product.category === currentCategory);
-        }
-        
-        // Filter by search query
-        if (searchQuery) {
-            filteredProducts = filteredProducts.filter(product => 
-                product.title.toLowerCase().includes(searchQuery) || 
-                product.description.toLowerCase().includes(searchQuery) ||
-                product.category.toLowerCase().includes(searchQuery)
-            );
-        }
-        
-        // Sort products
-        switch (currentSort) {
-            case 'price-asc':
-                filteredProducts.sort((a, b) => a.price - b.price);
-                break;
-            case 'price-desc':
-                filteredProducts.sort((a, b) => b.price - a.price);
-                break;
-            case 'rating':
-                filteredProducts.sort((a, b) => b.rating - a.rating);
-                break;
-            default:
-                // Default sorting (original order)
-                break;
-        }
-        
-        displayProducts(filteredProducts);
-    }
-    
-    // Helper functions
-    function formatCategory(category) {
-        return category.split('-').map(word => 
-            word.charAt(0).toUpperCase() + word.slice(1)
-        ).join(' ');
-    }
-    
-    function generateStarRating(rating) {
-        let stars = '';
-        const fullStars = Math.floor(rating);
-        const hasHalfStar = rating % 1 >= 0.5;
-        
-        for (let i = 1; i <= 5; i++) {
-            if (i <= fullStars) {
-                stars += '<i class="fas fa-star"></i>';
-            } else if (i === fullStars + 1 && hasHalfStar) {
-                stars += '<i class="fas fa-star-half-alt"></i>';
-            } else {
-                stars += '<i class="far fa-star"></i>';
-            }
-        }
-        
-        return stars;
-    }
-    
-    function generateRecentReviews(reviews) {
-        return reviews.slice(0, 2).map(review => `
-            <div class="review
+            title:
